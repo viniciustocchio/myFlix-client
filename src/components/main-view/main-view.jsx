@@ -15,8 +15,9 @@ export class MainView extends React.Component {
   }
 
   componentDidMount(){
-    axios.get('https://viniciustocchio-myflix.herokuapp.com/movies')
+    axios.get('http://localhost:8080/movies')
       .then(response => {
+        console.log(response.data,"movies from the local host api")
         this.setState({
           movies: response.data
         });
