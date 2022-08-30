@@ -18,8 +18,14 @@
   },
   "homepage": "https://github.com/viniciustocchio/myFlix-client#readme",
   "dependencies": {
+    "axios": "^0.27.2",
     "parcel": "^2.7.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.7.0",
+    "buffer": "^6.0.3",
+    "process": "^0.11.10"
   }
 }
