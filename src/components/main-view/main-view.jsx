@@ -21,12 +21,6 @@ export class MainView extends React.Component {
     };
   }
 
-  componentDidMount() {
-    let accessToken = localStorage.getItem("token");
-      this.getMovies(accessToken);
-    }
-  }
-
   getMovies(token) {
     axios
       .get("https://viniciustocchio-myflix.herokuapp.com/movies", {
@@ -42,10 +36,10 @@ export class MainView extends React.Component {
       });
   }
 
-  setSelectedMovie(movie) {
-    this.setState({
-      selectedMovie: movie,
-    });
+  componentDidMount() {
+    let accessToken = localStorage.getItem("token");
+      this.getMovies(accessToken);
+    }
   }
 
   onLoggedIn(authData) {
@@ -59,13 +53,19 @@ export class MainView extends React.Component {
     this.getMovies(authData.token);
   }
 
-  onLoggedOut() {
-    localStorage.removeItem("token");
-    localStorage.removeItem("user");
-    this.setState({
-      user: null,
-    });
-  }
+  // setSelectedMovie(movie) {
+  //   this.setState({
+  //     selectedMovie: movie,
+  //   });
+  // }
+
+  // onLoggedOut() {
+  //   localStorage.removeItem("token");
+  //   localStorage.removeItem("user");
+  //   this.setState({
+  //     user: null,
+  //   });
+  // }
 
 render() {
   const { movies, user } = this.state;
@@ -96,7 +96,6 @@ render() {
       </Row>
     </Router>
   );
-}
 }
 
 <Router>
