@@ -2,15 +2,15 @@ import React from "react";
 import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
 import axios from "axios";
 import { Container, Row, Col } from "react-bootstrap";
-import Menu from "../Menu/Menu";
+// import Menu from "../Menu/Menu";
 import { LoginView } from "../login-view/login-view";
 import { MovieCard } from "../movie-card/movie-card";
 import { MovieView } from "../movie-view/movie-view";
 import { RegistrationView } from "../registration-view/registration-view";
-import { DirectorView } from "../producer-view/poducer-view";
-import { ProfileView } from "../profile-view/profile-view/";
-import { UserUpdate } from "../profile-view/user-update";
-import "./main-view.scss";
+// import { DirectorView } from "../producer-view/poducer-view";
+// import { ProfileView } from "../profile-view/profile-view/";
+// import { UserUpdate } from "../profile-view/user-update";
+// import "./main-view.scss";
 
 export class MainView extends React.Component {
   constructor() {
@@ -23,7 +23,7 @@ export class MainView extends React.Component {
 
   componentDidMount() {
     let accessToken = localStorage.getItem("token");
-    if (accessToken !== nul) {
+    if (accessToken !== null) {
       this.setState({
         user: localStorage.getItem("user"),
       });
@@ -62,7 +62,7 @@ export class MainView extends React.Component {
 
     return (
       <Router>
-        <Menu user={user} />
+        {/* <Menu user={user} /> */}
         <Container>
           <Row className="main-view justify-content-md-center">
             <Route
