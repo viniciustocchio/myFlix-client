@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
 import axios from "axios";
 import { Container, Row, Col } from "react-bootstrap";
-// import Menu from "../Menu/Menu";
+import { NavBar } from "../navbar/navbar";
 import { LoginView } from "../login-view/login-view";
 import { MovieCard } from "../movie-card/movie-card";
 import { MovieView } from "../movie-view/movie-view";
@@ -62,8 +62,8 @@ export class MainView extends React.Component {
     const { movies, user } = this.state;
   {console.log(movies,"movies in render")}
     return (
-      <Router>
-        {/* <Menu user={user} /> */}
+      <Router> 
+        <NavBar user={user}/>
         <Container>
           <Row className="main-view justify-content-md-center">
             <Route
