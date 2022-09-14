@@ -6,7 +6,7 @@ import { Container, Row, Col } from "react-bootstrap";
 import { LoginView } from "../login-view/login-view";
 import { MovieCard } from "../movie-card/movie-card";
 import { MovieView } from "../movie-view/movie-view";
-import { RegistrationView } from "../registration-view/registration-view";
+// import { RegistrationView } from "../registration-view/registration-view";
 // import { DirectorView } from "../producer-view/poducer-view";
 // import { ProfileView } from "../profile-view/profile-view/";
 // import { UserUpdate } from "../profile-view/user-update";
@@ -33,9 +33,9 @@ export class MainView extends React.Component {
 
   onLoggedIn(authData) {
     console.log(authData);
-    this.setState({
+    this.setState(()=>{return{
       user: authData.user.Username,
-    });
+    }});
 
     localStorage.setItem("token", authData.token);
     localStorage.setItem("user", authData.user.Username);
@@ -48,8 +48,9 @@ export class MainView extends React.Component {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((response) => {
-        this.setState({
-          movies: response.data,
+     
+        this.setState(()=>{
+         return{ movies: response.data}
         });
       })
       .catch(function (error) {
@@ -59,7 +60,7 @@ export class MainView extends React.Component {
 
   render() {
     const { movies, user } = this.state;
-
+  {console.log(movies,"movies in render")}
     return (
       <Router>
         {/* <Menu user={user} /> */}
@@ -72,8 +73,9 @@ export class MainView extends React.Component {
                 if (!user)
                   return (
                     <Col>
+                  
                       <LoginView
-                        movies={movies}
+                        movies={this.state.movies}
                         onLoggedIn={(user) => this.onLoggedIn(user)}
                       />
                     </Col>
@@ -82,7 +84,7 @@ export class MainView extends React.Component {
 
                 return movies.map((m) => (
                   <Col md={3} key={m._id}>
-                    <MoviesCard movie={m} />
+                    <MovieCard movie={m} />
                   </Col>
                 ));
               }}
@@ -104,6 +106,8 @@ export class MainView extends React.Component {
                 return (
                   <Col md={8}>
                     <MovieView
+               
+
                       movie={movies.find((m) => m._id === match.params.id)}
                       onBackClick={() => history.goBack()}
                     />

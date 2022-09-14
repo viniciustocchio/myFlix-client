@@ -22,7 +22,7 @@ class MyFlixApplication extends React.Component {
 }
 
 
-const container = document.getElementsByClassName('app-container')[1];
+const container = document.getElementsByClassName('app-container')[0];
 
 const root = createRoot(container); 
 root.render(< MyFlixApplication />);
