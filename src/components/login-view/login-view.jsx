@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import axios from 'axios';
-
+import {Link} from "react-router-dom"
 export function LoginView(props) {
   const [ username, setUsername ] = useState('');
   const [ password, setPassword ] = useState('');
@@ -45,6 +45,10 @@ return (
       <Button variant="primary" type="submit" onClick={handleSubmit}>
         Submit
         </Button>
+  <br></br>
+                <p>
+                  Need an account? <Link to={"/register"}>Sign up</Link>
+                </p>
     </Form>
 
  
