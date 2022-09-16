@@ -9,7 +9,7 @@ import { MovieView } from "../movie-view/movie-view";
 import { RegistrationView } from "../registration-view/registration-view";
 // import { DirectorView } from "../producer-view/poducer-view";
 import { ProfileView } from "../profile-view/profile-view";
-// import { UserUpdate } from "../profile-view/user-update";
+import { UserUpdate } from "../profile-view/profile-view";
 // import "./main-view.scss";
 
 export class MainView extends React.Component {
