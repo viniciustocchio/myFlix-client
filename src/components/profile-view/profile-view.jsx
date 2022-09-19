@@ -1,5 +1,7 @@
 import React from "react";
 import axios from "axios";
+import UserInfo from "./user-info";
+import FavoriteMoviesList from "./favorite-movies";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
@@ -11,8 +13,6 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
 
-// Import custom SCSS
-//import "./profile-view.scss";
 
 export class ProfileView extends React.Component {
   constructor() {
@@ -175,16 +175,14 @@ export class ProfileView extends React.Component {
 
     return (
       <Container>
+        <UserInfo name={Username} email={Email}/>
+        <FavoriteMoviesList FavoriteMovies={FavoriteMovies} removeFav={(e)=>onRemoveFavorite(e, movie._id)}/>
         <Row>
           <Col>
             <Card className="user-profile">
               <Card.Header>User Profile</Card.Header>
               <Card.Body>
-                <>
-                  <p>Name: {Username}</p>
-                  <p>Email: {Email}</p>
-                  <p>Birthday: {Birthday}</p>
-                </>
+             
               </Card.Body>
             </Card>
           </Col>
@@ -265,37 +263,6 @@ export class ProfileView extends React.Component {
             </Card>
           </Col>
         </Row>
-        <Row></Row>
-        <Card className="favmov-inputs">
-          <Card.Body>
-            <Row>
-              <Col xs={12}>
-                <h4>Favorite Movies</h4>
-              </Col>
-            </Row>
-            <Row>
-              {FavoriteMovies.map((ImagePath, Title, _id) => {
-                return (
-                  <Col key={_id} className="fav-movie">
-                    <Figure>
-                      <Link to={`/movies/${movie._id}`}>
-                        <Figure.Image src={ImagePath} alt={Title} />
-                        <Figure.Caption>{Title}</Figure.Caption>
-                      </Link>
-                    </Figure>
-                    <Button
-                      className="remove"
-                      variant="secondary"
-                      onClick={() => removeFav(movie._id)}
-                    >
-                      Remove from the list
-                    </Button>
-                  </Col>
-                );
-              })}
-            </Row>
-          </Card.Body>
-        </Card>
       </Container>
     );
   }
