@@ -136,7 +136,7 @@ axios
 // console.log(FavoriteMovies, "fav movies in the profile view")
     return (
       <Container>
-        <UserInfo name={Username} email={Email}/>
+        <UserInfo name={Username} email={Email} birthday={Birthday}/>
         <FavoriteMoviesList FavoriteMovies={FavoriteMovies} movies={movies} removeFav={this.onRemoveFavorite} />
         <Row>
           <Col>

@@ -1,11 +1,11 @@
 import React from 'react'
 
-function UserInfo({ Username, Email, Birthday }) {
+function UserInfo({ name, email,birthday}) {
   return (
     <>
-      <p>Name: {Username}</p>
-      <p>Email: {Email}</p>
-      <p>Birthday: {Birthday}</p>
+      <p>Name: {name}</p>
+      <p>Email: {email}</p>
+      <p>Birthday: {birthday}</p>
     </>
 
   )
