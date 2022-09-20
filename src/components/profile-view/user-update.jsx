@@ -38,41 +38,7 @@ export class UserUpdate extends React.Component {
     });
     this.Birthday = value;
   }
-editUser = (e) => {
-    e.preventDefault();
-    const Username = localStorage.getItem("user");
-    const token = localStorage.getItem("token");
-    axios
-      .put(
-        `https://viniciustocchio-myflix.herokuapp.com/users/${Username}`,
-        {
-          Username: this.state.Username,
-          Password: this.state.Password,
-          Email: this.state.Email,
-          Birthday: this.state.Birthday,
-        },
-        {
-          headers: { Authorization: `Bearer ${token}` },
-        }
-      )
-      .then((response) => {
-        this.setState({
-          Username: response.data.Username,
-          Password: response.data.Password,
-          Email: response.data.Email,
-          Birthday: response.data.Birthday,
-        });
-        localStorage.setItem("user", this.state.Username);
-        const data = response.data;
-        console.log(data);
-        console.log(this.state.Username);
-        alert("Profile is updated!");
-        window.open(`/users/${Username}`, "_self");
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-  };
+
   // Deregister
   onDeleteUser() {
     const Username = localStorage.getItem("user");
@@ -93,6 +59,9 @@ editUser = (e) => {
       });
   }
   render(){
+    const {Username,Password,Email,Birthday
+    } =this.state
+    const user={Username,Password,Email,Birthday} 
 return(
 <Col>
             <Card className="update-inputs">
@@ -101,15 +70,7 @@ return(
                 <Card.Text>
                   <Form
                     className="update-form"
-                    onSubmit={(e) =>
-                      this.editUser(
-                        e,
-                        this.Username,
-                        this.Password,
-                        this.Email,
-                        this.Birthday
-                      )
-                    }
+                   
                   >
                     <Form.Group>
                       <Form.Label>Username</Form.Label>
@@ -153,7 +114,7 @@ return(
                       <Button
                         variant="warning"
                         type="submit"
-                        onClick={() => this.editUser()}
+                        onClick={(e) => this.props.editUser(e,user)}
                       >
                         Update User
                       </Button>

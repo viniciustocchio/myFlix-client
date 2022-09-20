@@ -88,35 +88,48 @@ export class ProfileView extends React.Component {
       });
   };
 
-  // Set user values
-  setUsername(value) {
-    this.setState({
-      Username: value,
-    });
-    this.Username = value;
+editUser = (e,user) => {
+    e.preventDefault();
+    const Username = localStorage.getItem("user");
+    const token = localStorage.getItem("token");
+    console.log(user,"user form fav movie to be edit it ")
+    let notEmpty=true;
+for (const key in user) {
+if(!user[key]){
+notEmpty=false
+}
   }
 
-  setPassword(value) {
-    this.setState({
-      Password: value,
-    });
-    this.Password = value;
-  }
-
-  setEmail(value) {
-    this.setState({
-      Email: value,
-    });
-    this.Email = value;
-  }
-
-  setBirthday(value) {
-    this.setState({
-      Birthday: value,
-    });
-    this.Birthday = value;
-  }
-
+if(notEmpty){
+axios
+      .put(
+        `https://viniciustocchio-myflix.herokuapp.com/users/${Username}`,
+        {
+          username: user.Username,
+          password: user.Password,
+          email: user.Email,
+          birthday: user.Birthday,
+        },
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      )
+      .then((response) => {
+               
+        const data = response.data;
+        console.log(data);
+        alert("Profile is updated!");
+        localStorage.setItem("user",user.Username)
+        window.open(`/users/${user.Username}`, "_self");
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+}else{
+  alert("fill all the form field")
+}
+    
+  };
   render() {
     const { movies } = this.props;
     const { FavoriteMovies, Username, Email, Birthday, Password } = this.state;
@@ -135,7 +148,7 @@ export class ProfileView extends React.Component {
             </Card>
           </Col>
 
-          <UserUpdate />
+          <UserUpdate editUser={this.editUser} />
     
         </Row>
       </Container>
