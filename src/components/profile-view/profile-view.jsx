@@ -105,10 +105,10 @@ axios
       .put(
         `https://viniciustocchio-myflix.herokuapp.com/users/${Username}`,
         {
-          username: user.Username,
-          password: user.Password,
-          email: user.Email,
-          birthday: user.Birthday,
+          Username: user.Username,
+          Password: user.Password,
+          Email: user.Email,
+          Birthday: user.Birthday,
         },
         {
           headers: { Authorization: `Bearer ${token}` },

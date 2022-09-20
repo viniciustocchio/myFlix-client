@@ -40578,10 +40578,10 @@ class ProfileView extends (0, _reactDefault.default).Component {
         let notEmpty = true;
         for(const key in user)if (!user[key]) notEmpty = false;
         if (notEmpty) (0, _axiosDefault.default).put(`https://viniciustocchio-myflix.herokuapp.com/users/${Username}`, {
-            username: user.Username,
-            password: user.Password,
-            email: user.Email,
-            birthday: user.Birthday
+            Username: user.Username,
+            Password: user.Password,
+            Email: user.Email,
+            Birthday: user.Birthday
         }, {
             headers: {
                 Authorization: `Bearer ${token}`
