@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import Container from 'react-bootstrap/Container';
 import { creatStore } from 'redux';
 import { Provider } from 'react-redux';
-import moviesApp from '.reducers/reducers';
+import moviesApp from './reducers/reducers';
 import { devToolsEnhancer } from 'redux-devtools-extension';
 
 import MainView from './components/main-view/main-view';
@@ -13,7 +13,7 @@ import './index.scss';
 
 // import { createRoot } from 'react-dom/client'; 
 
-const store = creatStore(moviesApp);
+const store = createStore(moviesApp);
 
 // Main component (will eventually use all the others)
 class MyFlixApplication extends React.Component {

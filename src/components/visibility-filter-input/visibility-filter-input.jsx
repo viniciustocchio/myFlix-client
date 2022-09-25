@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import Form from 'react-bootstrap/Form';
 
-import { setFilter } from '../../action/actions';
+import { setFilter } from '../../actions/actions';
 
 function VisibilityFilterInput(props) {
   return <Form.Control
