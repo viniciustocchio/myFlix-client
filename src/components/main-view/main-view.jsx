@@ -73,14 +73,12 @@ class MainView extends React.Component {
               exact
               path="/"
               render={() => {
-                if (!user) 
-                return
-                    <Col>
-                      <LoginView
-                        // movies={this.state.movies}
+                if (!user) {
+                  return <Col><LoginView
                         onLoggedIn={user => this.onLoggedIn(user)}
                       />
-                    </Col>
+                       </Col>
+                }       
                 if (movies.length === 0) return <div className="main-view" />;
                     return <MoviesList movies={movies}/>;
                   }} />
