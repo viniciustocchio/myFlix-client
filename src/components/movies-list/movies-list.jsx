@@ -13,11 +13,11 @@ const mapStateToProps = state => {
 };
 
 function MoviesList(props) {
-  const { movies, visibelityFilter } = props;
+  const { movies, visibilityFilter } = props;
   let filteredMovies = movies;
 
-  if (visibelityFilter !== '') {
-    filteredMovies = movies.filter(m => m.Titke.toLowerCase().includes(visibelityFilter.toLowerCase()));
+  if (visibilityFilter !== '') {
+    filteredMovies = movies.filter(m => m.Title.toLowerCase().includes(visibilityFilter.toLowerCase()));
   }
 
   if (!movies) return <div className="main-view"/>;
