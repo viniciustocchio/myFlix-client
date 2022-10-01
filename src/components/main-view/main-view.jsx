@@ -70,8 +70,8 @@ class MainView extends React.Component {
 
         return (
             <Router>
-                {/* <NavBar user={user}/> */}
-                {/* <Container> */}
+                <NavBar user={user}/>
+                <Container>
                 <Row className="main-view justify-content-md-center">
                     <Route
                         exact
@@ -183,7 +183,7 @@ class MainView extends React.Component {
 
 
                 </Row>
-                {/* </Container> */}
+                </Container>
             </Router>
         );
     }
