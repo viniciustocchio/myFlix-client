@@ -954,30 +954,27 @@ var _reducersDefault = parcelHelpers.interopDefault(_reducers);
 var _reduxDevtoolsExtension = require("redux-devtools-extension");
 var _mainView = require("./components/main-view/main-view");
 var _mainViewDefault = parcelHelpers.interopDefault(_mainView);
-// Import statement to indicate that you need to bundle `./index.scss`
 var _indexScss = require("./index.scss");
-// import { createRoot } from 'react-dom/client'; 
 const store = _redux.createStore(_reducersDefault.default, _reduxDevtoolsExtension.devToolsEnhancer());
-// Main component (will eventually use all the others)
 class MyFlixApplication extends _reactDefault.default.Component {
     render() {
         return(/*#__PURE__*/ _jsxRuntime.jsx(_reactRedux.Provider, {
             store: store,
             __source: {
                 fileName: "src/index.jsx",
-                lineNumber: 22
+                lineNumber: 19
             },
             __self: this,
             children: /*#__PURE__*/ _jsxRuntime.jsx(_containerDefault.default, {
                 __source: {
                     fileName: "src/index.jsx",
-                    lineNumber: 23
+                    lineNumber: 20
                 },
                 __self: this,
                 children: /*#__PURE__*/ _jsxRuntime.jsx(_mainViewDefault.default, {
                     __source: {
                         fileName: "src/index.jsx",
-                        lineNumber: 24
+                        lineNumber: 21
                     },
                     __self: this
                 })
@@ -986,8 +983,7 @@ class MyFlixApplication extends _reactDefault.default.Component {
     }
 }
 const container = document.getElementsByClassName('app-container')[0];
-_reactDomDefault.default.render(/*#__PURE__*/ _reactDefault.default.createElement(MyFlixApplication), container); // const root = createRoot(container); 
- // root.render(< MyFlixApplication />);
+_reactDomDefault.default.render(/*#__PURE__*/ _reactDefault.default.createElement(MyFlixApplication), container);
 
   $parcel$ReactRefreshHelpers$b058.postlude(module);
 } finally {
@@ -27931,7 +27927,6 @@ var _axiosDefault = parcelHelpers.interopDefault(_axios);
 var _reactBootstrap = require("react-bootstrap");
 var _navbar = require("../navbar/navbar");
 var _loginView = require("../login-view/login-view");
-// import { MovieCard } from "../movie-card/movie-card";
 var _movieView = require("../movie-view/movie-view");
 var _registrationView = require("../registration-view/registration-view");
 var _directerView = require("../directer-view/directer-view");
@@ -27976,9 +27971,6 @@ class MainView extends _reactDefault.default.Component {
                 Authorization: `Bearer ${token}`
             }
         }).then((response)=>{
-            //   this.setState(
-            //         {movies: response.data}
-            //    );
             this.props.setMovies(response.data);
         }).catch(function(error) {
             console.log(error);
@@ -27990,7 +27982,7 @@ class MainView extends _reactDefault.default.Component {
         return(/*#__PURE__*/ _jsxRuntime.jsxs(_reactRouterDom.BrowserRouter, {
             __source: {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 73
+                lineNumber: 69
             },
             __self: this,
             children: [
@@ -27998,21 +27990,21 @@ class MainView extends _reactDefault.default.Component {
                     user: user,
                     __source: {
                         fileName: "src/components/main-view/main-view.jsx",
-                        lineNumber: 74
+                        lineNumber: 70
                     },
                     __self: this
                 }),
                 /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Container, {
                     __source: {
                         fileName: "src/components/main-view/main-view.jsx",
-                        lineNumber: 75
+                        lineNumber: 71
                     },
                     __self: this,
                     children: /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Row, {
                         className: "main-view justify-content-md-center",
                         __source: {
                             fileName: "src/components/main-view/main-view.jsx",
-                            lineNumber: 76
+                            lineNumber: 72
                         },
                         __self: this,
                         children: [
@@ -28038,7 +28030,7 @@ class MainView extends _reactDefault.default.Component {
                                 },
                                 __source: {
                                     fileName: "src/components/main-view/main-view.jsx",
-                                    lineNumber: 77
+                                    lineNumber: 73
                                 },
                                 __self: this
                             }),
@@ -28057,7 +28049,7 @@ class MainView extends _reactDefault.default.Component {
                                 },
                                 __source: {
                                     fileName: "src/components/main-view/main-view.jsx",
-                                    lineNumber: 107
+                                    lineNumber: 97
                                 },
                                 __self: this
                             }),
@@ -28075,7 +28067,7 @@ class MainView extends _reactDefault.default.Component {
                                 },
                                 __source: {
                                     fileName: "src/components/main-view/main-view.jsx",
-                                    lineNumber: 118
+                                    lineNumber: 108
                                 },
                                 __self: this
                             }),
@@ -28102,7 +28094,7 @@ class MainView extends _reactDefault.default.Component {
                                 },
                                 __source: {
                                     fileName: "src/components/main-view/main-view.jsx",
-                                    lineNumber: 133
+                                    lineNumber: 123
                                 },
                                 __self: this
                             }),
@@ -28130,7 +28122,7 @@ class MainView extends _reactDefault.default.Component {
                                 },
                                 __source: {
                                     fileName: "src/components/main-view/main-view.jsx",
-                                    lineNumber: 145
+                                    lineNumber: 135
                                 },
                                 __self: this
                             }),
@@ -28150,7 +28142,7 @@ class MainView extends _reactDefault.default.Component {
                                 },
                                 __source: {
                                     fileName: "src/components/main-view/main-view.jsx",
-                                    lineNumber: 155
+                                    lineNumber: 145
                                 },
                                 __self: this
                             }),
@@ -28169,7 +28161,7 @@ class MainView extends _reactDefault.default.Component {
                                 },
                                 __source: {
                                     fileName: "src/components/main-view/main-view.jsx",
-                                    lineNumber: 170
+                                    lineNumber: 160
                                 },
                                 __self: this
                             })
