@@ -55,9 +55,10 @@ class MainView extends React.Component {
             })
             .then((response) => {
 
-              this.setState(
-                    {movies: response.data}
-               );
+            //   this.setState(
+            //         {movies: response.data}
+            //    );
+            this.props.setMovies(response.data)
             })
             .catch(function (error) {
                 console.log(error);
@@ -65,7 +66,7 @@ class MainView extends React.Component {
     }
 
     render() {
-        let {movies} = this.state;
+        let {movies} = this.props;
         let {user} = this.state;
 
         return (
